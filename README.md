@@ -155,13 +155,13 @@ WHERE d.score < t.avg_score AND d.votes > 100000;
 WITH profit_month AS (
 	SELECT 
 	CASE
-		WHEN released LIKE 'January%' THEN 'January'
+	    WHEN released LIKE 'January%' THEN 'January'
         WHEN released LIKE 'February%' THEN 'February'
         WHEN released LIKE 'March%' THEN 'March'
         WHEN released LIKE 'April%' THEN 'April'
         WHEN released LIKE 'May%' THEN 'May'
         WHEN released LIKE 'June%' THEN 'June'
-		WHEN released LIKE 'July%' THEN 'July'
+	    WHEN released LIKE 'July%' THEN 'July'
         WHEN released LIKE 'August%' THEN 'August'
         WHEN released LIKE 'September%' THEN 'September'
         WHEN released LIKE 'October%' THEN 'October'
@@ -196,7 +196,7 @@ ORDER BY max_profit DESC;
 WITH region_profit AS (
 SELECT
 	CASE 
-		WHEN country IN ('United States', 'Mexico', 'Canada') THEN 'North America'
+	    WHEN country IN ('United States', 'Mexico', 'Canada') THEN 'North America'
         WHEN country IN ('United Kingdom', 'West Germany', 'Italy', 'Sweden', 'Spain', 'Switzerland', 'France', 'Yugoslavia', 'Ireland', 'Germany') THEN 'Europe'
         WHEN country IN ('South Korea', 'Hong Kong', 'Japan') THEN 'Asia'
         WHEN country IN ('New Zealand', 'Australia') THEN 'Oceania'

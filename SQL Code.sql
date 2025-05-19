@@ -113,7 +113,7 @@ ORDER BY max_profit DESC;
 WITH region_profit AS (
 SELECT
 	CASE 
-		WHEN country IN ('United States', 'Mexico', 'Canada') THEN 'North America'
+	    WHEN country IN ('United States', 'Mexico', 'Canada') THEN 'North America'
         WHEN country IN ('United Kingdom', 'West Germany', 'Italy', 'Sweden', 'Spain', 'Switzerland', 'France', 'Yugoslavia', 'Ireland', 'Germany') THEN 'Europe'
         WHEN country IN ('South Korea', 'Hong Kong', 'Japan') THEN 'Asia'
         WHEN country IN ('New Zealand', 'Australia') THEN 'Oceania'
