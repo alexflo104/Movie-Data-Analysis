@@ -6,7 +6,7 @@ HAVING year > 1985 AND year < 1990
 ORDER BY score DESC;
 
 # 2. List all companies that have produced more than 10 movies and have an average gross over $100 million.
-SELECT company, count(name) AS number_movies, Avg(gross - budget) AS profit
+SELECT company, COUNT(name) AS number_movies, AVG(gross - budget) AS profit
 FROM movie_project.data
 GROUP BY company
 HAVING number_movies > 10 AND profit > 50000000
@@ -96,6 +96,7 @@ WITH profit_month AS (
         (gross - budget) AS profit
 	FROM movie_project.data
 ),
+
 month_max_profit AS (
 	SELECT month, max(profit) AS max_profit
     FROM profit_month
@@ -113,15 +114,16 @@ WITH region_profit AS (
 SELECT
 	CASE 
 		WHEN country IN ('United States', 'Mexico', 'Canada') THEN 'North America'
-        WHEN country IN ('United Kingdom', 'West Germany', 'Italy', 'Sweden', 'Spain', 'SwitzerlAND', 'France', 'Yugoslavia', 'IrelAND', 'Germany') THEN 'Europe'
+        WHEN country IN ('United Kingdom', 'West Germany', 'Italy', 'Sweden', 'Spain', 'Switzerland', 'France', 'Yugoslavia', 'Ireland', 'Germany') THEN 'Europe'
         WHEN country IN ('South Korea', 'Hong Kong', 'Japan') THEN 'Asia'
-        WHEN country IN ('New ZealAND', 'Australia') THEN 'Oceania'
-        Else 'Africa'
-	End AS region,
+        WHEN country IN ('New Zealand', 'Australia') THEN 'Oceania'
+        ELSE 'Africa'
+	END AS region,
     name,
     (gross - budget) AS profit
 FROM movie_project.data
 ),
+
 region_max_profit AS (
 	SELECT region, max(profit) AS max_profit
     FROM region_profit
