@@ -11,7 +11,7 @@ The data was retrieved FROM kaggle and includes the following variables:
 ![Data](<README images/movie data.JPG>)
 
 You can acess the data page from kaggle using the following link - 
-[Data](https://www.kaggle.com/datasets/danielgrijalvas/movies/data)
+[Movie Data](https://www.kaggle.com/datasets/danielgrijalvas/movies/data)
 
 ## SQL
 
@@ -24,6 +24,8 @@ WHERE votes > 300000
 HAVING year > 1985 AND year < 1990
 ORDER BY score DESC;
 ````
+
+![Result 1](Result_1.JPG)
 
 (ANSWER)
 
