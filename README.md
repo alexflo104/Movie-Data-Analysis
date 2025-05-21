@@ -8,6 +8,8 @@ Hello everybody the following is a project to practice even more on my data anal
 
 The data was retrieved FROM kaggle and includes the following variables:
 
+Query:
+
 ![Data](<README images/movie data.JPG>)
 
 You can acess the data page from kaggle using the following link - 
@@ -15,7 +17,15 @@ You can acess the data page from kaggle using the following link -
 
 ## SQL
 
-1. Which film has the highest score with more than 300,000 votes after the year 1985 - 1990
+1. Which film has the highest score with more than 300,000 votes between the year 1985 - 1990
+
+- First thing I decided to do is determine the variables I needed. So I needed the year, name, company, score, and votes.
+- I decided to include company so tha the stakeholder has more context about the film other than the name.
+- From here we seperated the movies to show only those with 300,000 votes or above
+- We also made sure to that the year was between the year 1985 - 1990
+- Lastly we ordered it by score and descending in order to display the highest score film at the top.
+
+Query:
 
 ````sql
 SELECT year, name, company, Score, votes
@@ -25,13 +35,22 @@ HAVING year > 1985 AND year < 1990
 ORDER BY score DESC;
 ````
 
-![Result 1](Result_1.JPG)
+Result:
 
-(ANSWER)
+![Result1](<README images/Result_1.JPG>)
+
+From the result above we can determine that the highest scored film with more than 300,000 votes was tied bewtween 2 movies Aliens and Full Metal Jacket with a score of 8.3. In second ther is a three way tie with Die Hard, My Neighbor Totoro, and Indiana Jone and the Last Crusade with a score of 8.2.
 
 ***
 
-2. List all companies that have produced more than 10 movies and have an average gross over $100 million.
+2. List all companies that have produced more than 10 movies and have an average gross over $50 million.
+
+- First we need to retrieve the company, the count of films, and the profit average of the studio.
+- We group it by data so that it knows to count the number of films by studio.
+- We now make it where the number of movies is greeater than 10 and the profit is more than $50 Million
+- I decided to order it by profit to show the most profitable studio with more than 10 films
+
+Query:
 
 ````sql
 SELECT company, COUNT(name) AS number_movies, AVG(gross - budget) AS profit
@@ -41,11 +60,21 @@ HAVING number_movies > 10 AND profit > 50000000
 ORDER BY profit DESC;
 ````
 
-(ANSWER)
+Result:
+
+![Result1](<README images/Result_2.JPG>)
+
+From the result above I can determine that the most profitbale stuido with more than 10 movies is Touchstone Picturesw with 25 movies and a profit of $73,101,036.48. In second is Paramount pictures with 80 films and a profit of $66,752,109.61
 
 ***
 
 3. Which film is profitble and has a score less than 5
+
+- First we need to retrive the name, score, gross, budget, and profit by subtracting the gross by the budget.
+- we than filter it to only schow films with a score less than 5
+- we than order it by profit and descending so that we get the most profitable movie on top
+
+Query:
 
 ```sql
 SELECT name, score, gross, budget, (gross - budget) AS profit
@@ -54,11 +83,22 @@ WHERE score < 5
 ORDER BY profit DESC;
 ```
 
-(ANSWER)
+Result:
+
+![Result1](<README images/Result_3.JPG>)
+
+From the results above I can determine that Jaws 3-D was the highest profitable movie with $67,487,055 and a score of 3.7. Behind Jaws 3-D is a film Staying Alive with a profit of $42,892,670 and a score of 4.7. I wanted to find these films because there are always those films that are rated low but are profitble becuase of its important name, or funny story that gravitates people to watch it no matter the score.
 
 ***
 
 4. Which country has the highest profitable film from a country other than the United States
+
+- First we need to retrieve the country, name, company, gross, budget, and the profit.
+- We then filter out all the countrys that are not the United States
+- We then order it by profit descending to get the highes profitable movie at the top
+- We then limit it to 1.
+
+Query:
 
 ```sql
 SELECT country, name, company,  gross, budget, (gross - budget) AS profit
@@ -68,7 +108,11 @@ ORDER BY profit DESC
 LIMIT 1;
 ```
 
-(ANSWER)
+Result:
+
+![Result1](<README images/Result_4.JPG>)
+
+From the results above we can determine that the most profitable movie not from the United States is the movie Corcodile Dundee from Australia with a profit of $319,403,506
 
 ***
 
