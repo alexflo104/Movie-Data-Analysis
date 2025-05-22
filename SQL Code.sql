@@ -63,17 +63,17 @@ join movie_project.data d
 HAVING budget > ab.avg_budget;
 
 # 8. List movies that had a lower score than the average score of other movies released in the same year, but received more than 100,000 votes.
-WITH test AS (
+WITH year_avg_score AS (
 	SELECT year, avg(score) AS avg_score
     FROM movie_project.data
 	GROUP BY year
 )
 
-SELECT d.name, d.year, d.votes, d.score, t.avg_score
+SELECT d.name, d.year, d.votes, d.score, avs.avg_score
 FROM movie_project.data  AS d
-join test AS t
-	ON d.year = t.year
-WHERE d.score < t.avg_score AND d.votes > 100000;
+join year_avg_score AS avs
+	ON d.year = avs.year
+WHERE d.score < avs.avg_score AND d.votes > 100000;
 
 # 9. Highest Profitable Movie from each month
 WITH profit_month AS (
@@ -132,6 +132,6 @@ region_max_profit AS (
 
 SELECT rp.region, rp.profit, rp.name
 FROM region_profit AS rp
-join region_max_profit AS rmp
+JOIN region_max_profit AS rmp
 	ON rp.region = rmp.region AND rp.profit = rmp.max_profit
 ORDER BY profit DESC;
