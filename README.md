@@ -2,11 +2,15 @@
 
 ## Introduction
 
-Hello everybody, the following is a project to practice even more on my data analysis skills. Unlike my previous project on used car data this one is based on movie data from 1980 through 1991. In this project I wanted to learn about more complex SQL problems and wanted to include the use of CTEs in some solutions. Below I  provided the data and what it includes
+
+Hello everybody, the following is a project to practice even more on my data analysis skills. Unlike my previous project on used car data this one is based on movie data from 1980 through 1991. In this project I wanted to learn about more complex SQL problems and wanted to include the use of CTEs in some solutions. Below I provided the data and what it includes
+
 
 ## Data
 
 The data was retrieved from Kaggle and includes the following variables:
+
+Query:
 
 ![Data](<README images/movie data.JPG>)
 
@@ -16,6 +20,7 @@ You can access the data page from Kaggle using the following link -
 ## SQL
 
 1. Which film has the highest score with more than 300,000 votes between the year 1985 - 1990
+
 
 - The first thing I decided to do is determine the variables I needed. So, I needed the year, name, company, score, and votes.
 - I decided to include company so that the stakeholder has more context about the film other than the name.
@@ -42,6 +47,7 @@ From the result above we can determine that the highest scored film with more th
 ***
 
 2. List all companies that have produced more than 10 movies and have an average gross over $50 million.
+
 
 - First, we need to retrieve the company, the number of films, and the average profit of the studio.
 - We group it by data so that it knows how to count the number of films by studio.
@@ -85,7 +91,9 @@ Result:
 
 ![Result1](<README images/Result_3.JPG>)
 
+
 From the results above I can determine that Jaws 3-D was the highest profitable movie with $67,487,055 and a score of 3.7. Behind Jaws 3-D is a film Staying Alive with a profit of $42,892,670 and a score of 4.7. I wanted to find these films because there are always those films that are rated low but are profitable because of their important name, or funny stories that gravitate people to watch them no matter what their score.
+
 
 ***
 
@@ -110,7 +118,9 @@ Result:
 
 ![Result1](<README images/Result_4.JPG>)
 
+
 From the results above we can determine that the most profitable movie not from the United States is the movie Crocodile Dundee from Australia with a profit of $319,403,506.
+
 
 ***
 
@@ -265,7 +275,7 @@ WITH profit_month AS (
         WHEN released LIKE 'August%' THEN 'August'
         WHEN released LIKE 'September%' THEN 'September'
         WHEN released LIKE 'October%' THEN 'October'
-        WHEN released LIKE 'Novemeber%' THEN 'Novemeber'
+        WHEN released LIKE 'November%' THEN 'November'
         WHEN released LIKE 'December%' THEN 'December'
 		END AS month,
         name,
