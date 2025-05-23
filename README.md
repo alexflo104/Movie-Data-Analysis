@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Hello everybody, the following is a project to practice even more on my data analysis skills. Unlike my previous project on used car data this one is based on movie data FROM 1980 through 1991. In this project I wanted to learn about more complex SQL problems and wanted to include the use of CTEs in some solutions. Below I  provided the data and what it includes
+Hello everybody, the following is a project to practice even more on my data analysis skills. Unlike my previous project on used car data this one is based on movie data from 1980 through 1991. In this project I wanted to learn about more complex SQL problems and wanted to include the use of CTEs in some solutions. Below I  provided the data and what it includes
 
 ## Data
 
