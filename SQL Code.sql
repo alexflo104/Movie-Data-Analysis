@@ -1,5 +1,5 @@
 # 1. Which film has the highest score with more than 300,000 votes after the year 1985 - 1990
-SELECT year, name, company, Score, votes
+SELECT year, name, company, score, votes
 FROM movie_project.data
 WHERE votes > 300000
 HAVING year > 1985 AND year < 1990
@@ -114,7 +114,8 @@ WITH region_profit AS (
 SELECT
 	CASE 
 	    WHEN country IN ('United States', 'Mexico', 'Canada') THEN 'North America'
-        WHEN country IN ('United Kingdom', 'West Germany', 'Italy', 'Sweden', 'Spain', 'Switzerland', 'France', 'Yugoslavia', 'Ireland', 'Germany') THEN 'Europe'
+        WHEN country IN ('United Kingdom', 'West Germany', 'Italy', 'Sweden',
+         'Spain', 'Switzerland', 'France', 'Yugoslavia', 'Ireland', 'Germany') THEN 'Europe'
         WHEN country IN ('South Korea', 'Hong Kong', 'Japan') THEN 'Asia'
         WHEN country IN ('New Zealand', 'Australia') THEN 'Oceania'
         ELSE 'Africa'
